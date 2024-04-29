@@ -116,35 +116,85 @@
     @endpush
 
 
-    <!-- Start Main Banner Area -->
-    <div class="main-banner-area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12">
-                    <div class="main-banner-content">
-                        <span class="sub-title">WELCOME TO {{strtoupper($siteName)}}</span>
-                        <h1>Trade & Invest like a Pro with {{$siteName}}</h1>
-                        <p>
-                            Build your financial portfolio in Gold Mining, Real Estate; invest in medical cannabis
-                            and in cryptocurrency; earn and save for your retirements, receive proper financial
-                            advice and planning service with {{$siteName}}
-                        </p>
-                        <div class="btn-box">
-                            <a href="{{route('register')}}" class="default-btn">Get Started <i class="ri-arrow-right-line"></i></a>
-                            <a href="{{route('login')}}" class="default-btn">Login <i class="ri-arrow-right-line"></i></a>
+    <!-- Start Home Area -->
+    <div class="home-slides owl-carousel owl-theme">
+        <div class="single-banner-item bg1">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-content">
+                            <span class="sub-title">WELCOME TO {{strtoupper($siteName)}}</span>
+                            <h1>Navigate the Financial Markets with  Confidence:</h1>
+                            <p>Unlock the Power of Forex Trading, Stocks, and More for Your Investment Success</p>
+                            <div class="btn-box">
+                                <a href="{{route('login')}}" class="default-btn">Login <i class="ri-arrow-right-line"></i></a>
+                                <a href="{{route('register')}}" class="default-btn">Get Started <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-image">
+                            <img src="{{asset('home/img/banner/banner2.png')}}" alt="image">
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-lg-6 col-md-12">
-                    <div class="main-banner-image">
-                        <img src="{{asset('home/img/banner/banner1.png')}}" alt="image">
+        <div class="single-banner-item bg2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-content">
+                            <span class="sub-title">FUTURE SECURITY</span>
+                            <h1>Secure your future</h1>
+                            <p>
+                                Expert Retirement Planning, Precious Metals, and High-Return Ventures Await You on Our Investment Platform
+                            </p>
+                            <div class="btn-box">
+                                <a href="{{route('login')}}" class="default-btn">Login <i class="ri-arrow-right-line"></i></a>
+                                <a href="{{route('register')}}" class="default-btn">Get Started <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-image">
+                            <img src="{{asset('home/img/banner/banner3.png')}}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-banner-item bg3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-content">
+                            <span class="sub-title">REASON OF CHOOSE {{strtoupper($siteName)}}</span>
+                            <h1>Diversify and Prosper</h1>
+                            <p>
+                                Your Gateway to Wealth through Forex, Stocks, Retirement Solutions, Gold, Medical Cannabis, and Oil & Gas Investments!
+                            </p>
+                            <div class="btn-box">
+                                <a href="{{route('login')}}" class="default-btn">Login <i class="ri-arrow-right-line"></i></a>
+                                <a href="{{route('register')}}" class="default-btn">Get Started <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="banner-item-image">
+                            <img src="{{asset('home/img/banner/banner4.png')}}" alt="image">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Main Banner Area -->
+    <!-- End Home Area -->
 
     <!-- Start Services Area -->
     <div class="services-area pt-100">
