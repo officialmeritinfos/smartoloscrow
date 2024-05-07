@@ -17,9 +17,9 @@
                         <th>Amount</th>
                         <th>Roi</th>
                         <th>Current profit</th>
-                        <th>Date Initiated</th>
+                        <th>Wallet</th>
                         <th>Status</th>
-                        <th>Action</th>
+{{--                        <th>Action</th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,7 @@
                             <td>{{number_format($investment->amount,2)}}</td>
                             <td>{{$investment->roi}}%</td>
                             <td>{{$investment->currentProfit}}</td>
-                            <td>{{$investment->created_at}}</td>
+                            <td>{{$investment->wallet}}</td>
                             <td>
                                 @switch($investment->status)
                                     @case(1)
@@ -46,11 +46,11 @@
                                     @break
                                 @endswitch
                             </td>
-                            <td>
-                                <a href="{{route('invest_detail',['id'=>$investment->id])}}" class="btn btn-primary">
-                                    <i class="fa fa-eye"></i> View Details
-                                </a>
-                            </td>
+{{--                            <td>--}}
+{{--                                <a href="{{route('invest_detail',['id'=>$investment->id])}}" class="btn btn-primary">--}}
+{{--                                    <i class="fa fa-eye"></i> View Details--}}
+{{--                                </a>--}}
+{{--                            </td>--}}
                         </tr>
                     @endforeach
                     </tbody>

@@ -17,7 +17,6 @@
                         <th>Amount</th>
                         <th>Address</th>
                         <th>Asset</th>
-                        <th>Date Requested</th>
                         <th>Status</th>
                     </tr>
                     </thead>
@@ -28,7 +27,6 @@
                             <td>{{number_format($withdrawal->amount,2)}}</td>
                             <td>{{$withdrawal->details}}</td>
                             <td>{{$withdrawal->asset}}</td>
-                            <td>{{$withdrawal->created_at}}</td>
                             <td>
                                 @switch($withdrawal->status)
                                     @case(1)
