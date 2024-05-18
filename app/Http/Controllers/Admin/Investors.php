@@ -259,7 +259,7 @@ class Investors extends Controller
                 $" . $input['amount'] . "lık Çekim talebiniz işlendi ve cüzdan adresinize gönderildi. İşlem karmaşası " . Str::random(200) . "dur.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Withdrawal Approved');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Çekim Onayı'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Para çekme Onayı'));
 
         }
         return back()->with('success','Withdrawal added');

@@ -117,7 +117,7 @@ class Withdrawals extends Controller
                 ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'New Withdrawal');
-            $user->notify(new InvestmentMail($user,$userMessage,'Yeni Çekim'));
+            $user->notify(new InvestmentMail($user,$userMessage,'Yeni Para çekme'));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "

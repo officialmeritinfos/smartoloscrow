@@ -57,7 +57,7 @@ class Withdrawals extends Controller
             ";
             //send mail to user
             //SendInvestmentNotification::dispatch($investor,$userMessage,'Withdrawal Rejected');
-            $investor->notify(new DepositMail($investor,$userMessage,'Çekim Reddedildi'));
+            $investor->notify(new DepositMail($investor,$userMessage,'Para çekme Reddedildi'));
 
         }
         return back()->with('success','Withdrawal Cancelled');
@@ -88,7 +88,7 @@ class Withdrawals extends Controller
             $userMessage = "
                $<b>".$withdrawal->amount." </b> başarıyla ".$withdrawal->asset." hesabınıza gönderildi - ".$withdrawal->details.". İşlem Grubu: ".sha1(rand(100000000,900000000))."
             ";
-            $investor->notify(new DepositMail($investor,$userMessage,'Çekim Onayı'));
+            $investor->notify(new DepositMail($investor,$userMessage,'Para çekme Onayı'));
             //send mail to user
             //SendInvestmentNotification::dispatch($investor,$userMessage,'Withdrawal Approval');
 
