@@ -42,12 +42,12 @@ class PasswordChangedMail extends Notification
     {
         $url = route('login');
         return (new MailMessage)
-                    ->subject('Account Reset Notification')
-                    ->greeting('Hey '.$this->user->name)
-                    ->line('This is a short notification that your account password on '.env('APP_NAME').'
-                    has been reset. If you did not perform this action, we advise that you login and reset your password.')
-                    ->action('Login', $url)
-                    ->line('Thank you for using our application!');
+                    ->subject('Hesap Sıfırlama Bildirimi')
+                    ->greeting('Merhaba '.$this->user->name)
+                    ->line(env('APP_NAME')." üzerindeki hesap şifrenizin sıfırlandığına dair kısa bir bildirimdir. Eğer
+                    bu işlemi siz gerçekleştirmediyseniz, giriş yaparak şifrenizi sıfırlamanızı öneririz.")
+                    ->action('Giriş', $url)
+            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**

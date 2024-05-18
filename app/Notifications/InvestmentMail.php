@@ -46,10 +46,9 @@ class InvestmentMail extends Notification
     {
         return (new MailMessage)
             ->subject($this->subject)
-            ->greeting('Hello '.$this->user->name)
+            ->greeting('Merhaba '.$this->user->name)
             ->line($this->message)
-            ->action('Go To Dashboard', route('login'))
-            ->line('Thank you for using our application!');
+            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**

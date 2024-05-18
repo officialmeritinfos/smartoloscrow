@@ -52,12 +52,12 @@ class PasswordResetMail extends Notification
         ];
         PasswordReset::create($data);
         return (new MailMessage)
-            ->subject('Account Recovery Verification')
-            ->greeting('Hello '.$this->user->name)
-            ->line('.<br>Before resetting your password, we need you to authenticate this request')
-            ->action('Authenticate Now',$verificationUrl)
-            ->line('<br> The above link will expire in '.$this->codeExpiration())
-            ->line('.<br>Thank you for using '.env('APP_NAME'));
+            ->subject('Hesap Kurtarma Doğrulaması')
+            ->greeting('Merhaba '.$this->user->name)
+            ->line('<br>Şifrenizi sıfırlamadan önce, bu talebi doğrulamanızı istiyoruz')
+            ->action('Şimdi Doğrula',$verificationUrl)
+            ->line('<br> Yukarıdaki bağlantı 24 saat içinde geçersiz olacaktır. ')
+            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**

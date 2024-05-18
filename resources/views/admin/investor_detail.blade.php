@@ -104,7 +104,7 @@
                             <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>${{number_format($investor->balance,2)}}</td>
+                                <td>${{number_format($investor->profit,2)}}</td>
                                 <td>${{number_format($investor->withdrawals,2)}}</td>
                                 <td>${{number_format($investor->refBal,2)}}</td>
                                 <td>${{number_format($investor->bonus,2)}}</td>
@@ -284,13 +284,13 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4 mt-4">
         <div class="card-header py-3">
@@ -344,7 +344,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="notify">
         <div class="modal-dialog modal-dialog-centered" role="document">

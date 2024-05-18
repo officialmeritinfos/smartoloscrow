@@ -106,13 +106,18 @@ class Withdrawals extends Controller
 
             //check if admin exists
             $admin = User::where('is_admin',1)->first();
+
             $userMessage = "
-                Your new withdrawal request of $<b>".$input['amount']." </b>
-                has been received and will be processed soonest. Your Withdrawal reference Id is <b>".$ref."</b>
-            ";
+                    İşte Çekim Talebinizin Detayı:<br/>
+                    <p><b>MIKTARI</b>:$".$input['amount']."</p>
+                    <p><b>ÖDEME YÖNTEMİ</b>:".$input['asset']."</p>
+                    <p><b>CÜZDAN ADRESİ</b>:".$input['wallet']."</p>
+                    <p><b>ÇEKİM KİMLİĞİ</b>:".$ref."</p>
+                    <p>Çekiminiz onaylandığında bildirileceksiniz</p>
+                ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'New Withdrawal');
-            $user->notify(new InvestmentMail($user,$userMessage,'New Withdrawal'));
+            $user->notify(new InvestmentMail($user,$userMessage,'Yeni Çekim'));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "

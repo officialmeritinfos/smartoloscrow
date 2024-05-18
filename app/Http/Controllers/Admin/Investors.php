@@ -162,10 +162,10 @@ class Investors extends Controller
         if ($update){
             //send mail to investor
             $userMessage = "
-                Your Account balance has been credited with $<b>" . $input['amount'] . " .
+               Hesap bakiyenize $" . $input['amount'] . " kredi yapıldı.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Balance Topup');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Balance Topup'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Bakiye Yükleme'));
         }
         return back()->with('success','Balance added');
     }
@@ -193,10 +193,10 @@ class Investors extends Controller
         if ($update){
             //send mail to investor
             $userMessage = "
-                Your Profit balance has been credited with $<b>" . $input['amount'] . " .
+                Süregelen yatırım planınızda $" . $input['amount'] . " kazandınız. Bu, hesap bakiyenize eklenmiştir.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Profit Topup');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Profit Topup'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Kar Kazancı'));
         }
         return back()->with('success','Profit added');
     }
@@ -224,10 +224,10 @@ class Investors extends Controller
         if ($update){
             //send mail to investor
             $userMessage = "
-                Your Referral balance has been credited with $<b>" . $input['amount'] . " .
+                Yönlendirme bakiyenize $" . $input['amount'] . " kredi yapıldı.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Referral Topup');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Referral Topup'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Yönlendirme Bakiye Yükleme'));
 
         }
         return back()->with('success','Referral Balance added');
@@ -256,11 +256,10 @@ class Investors extends Controller
         if ($update){
             //send mail to investor
             $userMessage = "
-                Your Withdrawal request of $<b>" . $input['amount'] . "</b> has been processed
-                and sent to your wallet Address. Your transaction hash is <b>".Str::random(200)."</b>
+                $" . $input['amount'] . "lık Çekim talebiniz işlendi ve cüzdan adresinize gönderildi. İşlem karmaşası " . Str::random(200) . "dur.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Withdrawal Approved');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Withdrawal Approved'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Çekim Onayı'));
 
         }
         return back()->with('success','Withdrawal added');
@@ -379,17 +378,18 @@ class Investors extends Controller
         $investor = User::where('id',$input['id'])->first();
 
         $data = [
-            'bonus'=>$investor->bonus+$input['amount']
+            'profit'=>$investor->profit+$input['amount'],
+            'bonus'=>$investor->bonus+$input['amount'],
         ];
 
         $update = User::where('id',$input['id'])->update($data);
         if ($update){
             //send mail to investor
             $userMessage = "
-                You have been credited with $<b>" . $input['amount'] . "</b> as bonus
+                Sizden $" . $input['amount'] . " bonus olarak kredilendirildi.
             ";
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Withdrawal Approved');
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Credit Notification - Bonus'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Kredi Bildirimi - Bonus'));
 
         }
 
@@ -413,6 +413,7 @@ class Investors extends Controller
         $investor = User::where('id',$input['id'])->first();
 
         $data = [
+            'profit'=>$investor->profit-$input['amount'],
             'bonus'=>$investor->bonus-$input['amount']
         ];
 

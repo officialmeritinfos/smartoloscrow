@@ -41,14 +41,14 @@ class WelcomeMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Welcome to '.env('APP_NAME'))
-                    ->greeting('Hello '.$this->user->name)
-                    ->line('A warm welcome to you from the '.env('APP_NAME')." team.<br>
-                        <p>We established ".env('APP_NAME')." in order to help individuals like you invest with unlimited
-                        opportunities. We empower investors to earn unlimitedly using our investment packages.</p>
-                        <p>We’d love to hear what you think of ".env('APP_NAME')." and if there is anything
-                        we can improve. If you have any questions, do not hesitate to contact us.<br>")
-                    ->line('Thank you for using our application!');
+                    ->subject(env('APP_NAME').'e Hoş Geldiniz')
+                    ->greeting('Merhaba '.$this->user->name)
+                    ->line(env('APP_NAME') ."ekibinden size sıcak bir karşılama.<br><p>Sizin gibi bireylerin sınırsız fırsatlarla yatırım
+                    yapmasına yardımcı olmak için ".env('APP_NAME')."i kurduk.
+                    Yatırım paketlerimizle yatırımcılara sınırsız kazanç elde etme imkanı sunuyoruz.</p>
+                    <p>".env('APP_NAME')." hakkında ne düşündüğünüzü duymak isteriz ve geliştirebileceğimiz bir şey varsa bize bildirin.
+                    Herhangi bir sorunuz olursa, bizimle iletişime geçmekten çekinmeyin.<br>")
+                    ->line('Uygulamamızı kullandığınız için teşekkür ederiz!');
     }
 
     /**

@@ -54,6 +54,11 @@ class Investments extends Controller
         $investment = Investment::where('id',$id)->first();
 
         $type = ReturnType::where('id',$investment->returnType)->first();
+        $investor = User::where('id',$investment->user)->first();
+
+        $message ="Bekleyen yatırımınızın yatırımı alındı ve etkinleştirildi. Şimdi şirketimizde bir yatırımcı olmanın avantajlarının tadını çıkarabilirsiniz.";
+
+        $investor->notify(new InvestmentMail($investor,$message,'Yatırım Yatırma Aktivasyonu'));
 
         $timeReturn = strtotime($type->duration,time());
 
@@ -106,13 +111,13 @@ class Investments extends Controller
             User::where('id', $investor->id)->update($dataUser);
             //send a mail to investor
             $userMessage = "
-                Your Investment with reference Id is <b>" . $investment->reference . "</b> has completed
-                and the earned returns added to your profit account.
-            ";
+                                Referans kimliği <b>".$investment->reference."</b> olan yatırımınız tamamlandı ve kazanılan getiriler hesap bakiyenize eklendi.
+
+                            ";
             //send mail to user
             //SendInvestmentNotification::dispatch($investor, $userMessage, 'Investment Completion');
 
-            $investor->notify(new InvestmentMail($investor, $userMessage, 'Investment Completion'));
+            $investor->notify(new InvestmentMail($investor, $userMessage, 'Yatırım Tamamlama'));
 
             $admin = User::where('is_admin', 1)->first();
             //send mail to Admin

@@ -49,15 +49,14 @@ class LoginMail extends Notification
         Login::create($data);
         $url = route('login');
         return (new MailMessage)
-            ->subject('Login Notification')
-            ->greeting('Hey '.$this->user->name)
-            ->line("Your account <b>".env('APP_NAME')."</b> has been accessed. If this login was not
-            authorized by you, click the button below to reset your account details.<br>")
+            ->subject('Giriş Bildirimi')
+            ->greeting('Merhaba '.$this->user->name)
+            ->line("Hesabınıza erişildi. Eğer bu giriş sizin tarafınızdan yetkilendirilmediyse, hesap detaylarınızı sıfırlamak için aşağıdaki düğmeye tıklayın.<br>")
             ->line("<b>IP:</b> ".$this->request->ip()."<br>")
             ->line("<b>Time:</b> ".date('M d Y, h:i a')."<br>")
-            ->line("<b>Type:</b> Login using Email and Password")
-            ->action('Go To Dashboard',$url)
-            ->line("Ignore if this was you.<b>");
+            ->line("<b>Type:</b> E-posta ve Şifre ile Giriş Yap")
+            ->action('Panoya Git',$url)
+            ->line("Eğer bu sizseniz görmezden gelin.<b>");
     }
 
     /**

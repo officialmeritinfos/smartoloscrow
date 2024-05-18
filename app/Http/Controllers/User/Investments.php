@@ -149,14 +149,24 @@ class Investments extends Controller
             //send notification
             //check if admin exists
             $admin = User::where('is_admin',1)->first();
-            $userMessage = "
-                    Your new investment package purchase of $<b>".$input['amount']." </b>
-                    has been received. Your Investment reference Id is <b>".$ref."</b>
-                ";
 
+
+            if ($input['account']==1){
+                $userMessage = "
+                    İşte Yatırım Yatırma Talebinizin Detayı:<br/>
+                    <p><b>Yatırımınızı tamamlamak ve yatırıma başlamak için bu adımları izlemeniz gerekmektedir.</b></p>
+                    <p><b>YATIRIM MIKTARI</b>:$".$input['amount']."</p>
+                    <p><b>ÖDEME YÖNTEMİ</b>:".$coinExists->name."</p>
+                    <p><b>CÜZDAN ADRESİ</b>:".$coinExists->address."</p>
+                    <p><b>YATIRIM KİMLİĞİ</b>:".$ref."</p>
+                    <p>Ödeme yapıldıktan sonra, yatırımınızı etkinleştirmek için lütfen destek ile iletişime geçin</p>
+                ";
+            }else{
+                $userMessage = "$".$input['amount']." lik Yatırımınız başarıyla başlatıldı ve hesap bakiyeniz bunu finanse etmek için düşüldü.";
+            }
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'Investment Initiation');
-            $user->notify(new InvestmentMail($user,$userMessage,'Investment Initiation'));
+            $user->notify(new InvestmentMail($user,$userMessage,'Yatırım Başlatma'));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "

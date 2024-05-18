@@ -52,13 +52,11 @@ class EmailVerifyMail extends Notification
         ];
         EmailVerification::create($data);
         return (new MailMessage)
-            ->subject('Email Verification')
-            ->greeting('Hello '.$this->user->name)
-            ->line('Welcome to '.env('APP_NAME'))
-            ->line('.<br>Please verify your email address by clicking the button below.')
-            ->action('Verify Now',$verificationUrl)
-            ->line('<br> The above link will expire in '.$this->codeExpiration())
-            ->line('.<br>Thank you for using '.env('APP_NAME'));
+            ->subject('E-posta Doğrulama')
+            ->greeting('Merhaba '.$this->user->name)
+            ->line('.<br>Lütfen aşağıdaki düğmeye tıklayarak e-posta adresinizi doğrulayın.')
+            ->action('Şimdi Doğrula',$verificationUrl)
+            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**

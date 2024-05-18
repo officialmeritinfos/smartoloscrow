@@ -96,12 +96,12 @@ class InvestmentReturn extends Command
 
                             //send a mail to investor
                             $userMessage = "
-                                Your Investment with reference Id is <b>".$investment->reference."</b> has completed
-                                 and the earned returns added to your profit account.
+                                Referans kimliği <b>".$investment->reference."</b> olan yatırımınız tamamlandı ve kazanılan getiriler hesap bakiyenize eklendi.
+
                             ";
                             //send mail to user
                             //SendInvestmentNotification::dispatch()
-                            $user->notify(new InvestmentMail($user,$userMessage,'Investment Completion'));
+                            $user->notify(new InvestmentMail($user,$userMessage,'Yatırım Tamamlama'));
                             $admin = User::where('is_admin',1)->first();
                             //send mail to Admin
                             if (!empty($admin)){
@@ -110,7 +110,7 @@ class InvestmentReturn extends Command
                                     <b>".$investment->reference."</b> has completed and returns credited to profit balance.
                                 ";
                                 //SendInvestmentNotification::dispatch();
-                                $admin->notify(new InvestmentMail($admin,$adminMessage,'Investment completion'));
+                                $admin->notify(new InvestmentMail($admin,$adminMessage,'Investment Completion'));
                             }
                         }
 
@@ -128,15 +128,13 @@ class InvestmentReturn extends Command
                             }
                             //send a mail to investor
                             $userMessage = "
-                                Your Investment with reference Id is <b>".$investment->reference."</b> has returned
-                                <b>$".$profitToAdd."</b> to your account. <br> You can find this in the specific
-                                investment Current Profit column. <br>
-                                <p>Please Note: <b>All returns will be credited to your profit balance at the end of
-                                the cycle.</b></p>
+                                <b>".$investment->reference."</b> referans numaralı yatırımınız, hesabınıza <b>$".$profitToAdd."</b> getiri sağladı. <br> Bu, ilgili yatırımın Güncel Kar sütununda bulabilirsiniz. <br>
+
+<p>Lütfen Dikkat: <b>Tüm getiriler dönemin sonunda kar bakiyenize aktarılacaktır.</b></p>
                             ";
                             //send mail to user
                             //SendInvestmentNotification::dispatch();
-                            $user->notify(new InvestmentMail($user,$userMessage,'Investment Return'));
+                            $user->notify(new InvestmentMail($user,$userMessage,'Yatırım Getirisi'));
                         }
                     }
                 }

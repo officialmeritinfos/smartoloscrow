@@ -119,7 +119,7 @@
                                 <a href="{{route('admin.invest.complete',['id'=>$investment->id])}}"
                                    class="btn btn-success mt-4">Complete Investment</a>
                                 <a href="{{route('admin.invest.start',['id'=>$investment->id])}}"
-                                   class="btn btn-primary mt-4">Start Investment</a>
+                                   class="btn btn-primary mt-4">Approve Investment Deposit</a>
                                 <a href="{{route('admin.invest.cancel',['id'=>$investment->id])}}"
                                    class="btn btn-danger mt-4">Cancel</a>
                                 <a href="{{route('admin.invest.delete',['id'=>$investment->id])}}"

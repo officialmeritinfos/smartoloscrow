@@ -53,12 +53,11 @@ class Withdrawals extends Controller
             User::where('id',$investor->id)->update($dataUser);
 
             $userMessage = "
-                Your withdrawal request with reference Id <b>".$withdrawal->reference." </b>
-                has been rejected and account refunded of the requested amount.
+                <b>".$withdrawal->reference."</b> referans numaralı çekim talebiniz reddedildi ve istenen tutar hesaba iade edildi.
             ";
             //send mail to user
             //SendInvestmentNotification::dispatch($investor,$userMessage,'Withdrawal Rejected');
-            $investor->notify(new DepositMail($investor,$userMessage,'Withdrawal Rejected'));
+            $investor->notify(new DepositMail($investor,$userMessage,'Çekim Reddedildi'));
 
         }
         return back()->with('success','Withdrawal Cancelled');
@@ -87,11 +86,9 @@ class Withdrawals extends Controller
             User::where('id',$investor->id)->update($dataUser);
 
             $userMessage = "
-                $<b>".$withdrawal->amount." </b> has been successfully sent to your ".$withdrawal->asset."  -
-                ".$withdrawal->details.".
-                Transaction Batch is ".sha1(rand(100000000,900000000))."
+               $<b>".$withdrawal->amount." </b> başarıyla ".$withdrawal->asset." hesabınıza gönderildi - ".$withdrawal->details.". İşlem Grubu: ".sha1(rand(100000000,900000000))."
             ";
-            $investor->notify(new DepositMail($investor,$userMessage,'Withdrawal Processed'));
+            $investor->notify(new DepositMail($investor,$userMessage,'Çekim Onayı'));
             //send mail to user
             //SendInvestmentNotification::dispatch($investor,$userMessage,'Withdrawal Approval');
 

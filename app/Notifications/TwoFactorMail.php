@@ -52,15 +52,13 @@ class TwoFactorMail extends Notification
         ];
         TwoFactor::create($data);
         return (new MailMessage)
-            ->subject('Login Authentication')
-            ->greeting('Hey '.$this->user->name)
-            ->line("It looks like someone tried to log into your ".env('APP_NAME')." account
-                from a new location. If this is you, follow the link below to authorize logging in from
-                this location on your account. If this isn't you, we suggest changing your password as
-                soon as possible.")
-            ->action('Verify Login',$verificationUrl)
-            ->line('<br> The above link will expire in '.$this->codeExpiration())
-            ->line('.<br>Thank you for using '.env('APP_NAME'));
+            ->subject('Giriş Kimlik Doğrulama')
+            ->greeting('Merhaba '.$this->user->name)
+            ->line("Birisi yeni bir konumdan ".env('APP_NAME')." hesabınıza giriş yapmaya çalışmış gibi görünüyor.
+            Bu sizseniz, hesabınıza bu konumdan giriş yapmayı yetkilendirmek için aşağıdaki bağlantıyı takip edin. Eğer bu siz değilseniz, şifrenizi en kısa zamanda değiştirmenizi öneririz")
+            ->action('Girişi Doğrula',$verificationUrl)
+            ->line('<br> Yukarıdaki bağlantının süresi 24 saat içinde dolacak. ')
+            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**

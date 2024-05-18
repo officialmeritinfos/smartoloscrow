@@ -1,34 +1,22 @@
 @extends('home.base')
 @section('content')
-    <!-- End Page-title Area -->
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
+    <div class="breadcrumb blog-breadcrumb">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text">{{$pageName}}</div>
-                        <div class="page-title">
-                            <h1>{{$pageName}}</h1>
-                        </div>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="part-txt">
 
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$pageName}}</li>
-                        </ol>
-                    </nav>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="{{asset('home/img/page-banner/page-banner-start.svg')}}" class="img-fluid start" alt="">
-                        <img src="{{asset('home/img/page-banner/page-banner.jpg')}}" class="img-fluid" alt="">
+                        <h1>{{$pageName}}</h1>
+                        <ul>
+                            <li>Home</li>
+                            <li>-</li>
+                            <li>{{$pageName}}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Start Services Details Area -->
     <div class="services-details-area ptb-100">
