@@ -112,7 +112,7 @@ class Withdrawals extends Controller
                     <p><b>MIKTARI</b>:$".$input['amount']."</p>
                     <p><b>ÖDEME YÖNTEMİ</b>:".$input['asset']."</p>
                     <p><b>CÜZDAN ADRESİ</b>:".$input['wallet']."</p>
-                    <p><b>ÇEKİM KİMLİĞİ</b>:".$ref."</p>
+                    <p><b>Para çekme KİMLİĞİ</b>:".$ref."</p>
                     <p>Çekiminiz onaylandığında bildirileceksiniz</p>
                 ";
             //send mail to user
