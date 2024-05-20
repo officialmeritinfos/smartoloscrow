@@ -153,10 +153,10 @@ class Investments extends Controller
 
             $userMessage = "
                     İşte Yatırım Yatırma Talebinizin Detayı:<br/>
-                    <p><b>YATIRIM MIKTARI</b>:$".$input['amount']."</p>
-                    <p><b>ÖDEME YÖNTEMİ</b>:".$coinExists->name."</p>
-                    <p><b>Plan</b>:".$packageExists->name."</p>
-                    <p><b>YATIRIM KİMLİĞİ</b>:".$ref."</p>
+                    <p style='font-size: 12px;'>YATIRIM MIKTARI: $".$input['amount']."</p>
+                    <p style='font-size: 12px;'>ÖDEME YÖNTEMİ: ".$coinExists->name."</p>
+                    <p style='font-size: 12px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
+                    <p style='font-size: 12px;'>YATIRIM KİMLİĞİ: ".$ref."</p>
                 ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'Investment Initiation');

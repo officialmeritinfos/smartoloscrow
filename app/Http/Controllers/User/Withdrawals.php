@@ -109,11 +109,11 @@ class Withdrawals extends Controller
 
             $userMessage = "
                     İşte Çekim Talebinizin Detayı:<br/>
-                    <p><b>MIKTARI</b>:$".$input['amount']."</p>
-                    <p><b>ÖDEME YÖNTEMİ</b>:".$input['asset']."</p>
-                    <p><b>CÜZDAN ADRESİ</b>:".$input['wallet']."</p>
-                    <p><b>Para çekme KİMLİĞİ</b>:".$ref."</p>
-                    <p>Çekiminiz onaylandığında bildirileceksiniz</p>
+                    <p style='font-size: 12px;'><b>MIKTARI</b>: $".$input['amount']."</p>
+                    <p style='font-size: 12px;'><b>ÖDEME YÖNTEMİ</b>: ".$input['asset']."</p>
+                    <p style='font-size: 12px;'><b>CÜZDAN ADRESİ</b>: ".$input['wallet']."</p>
+                    <p style='font-size: 12px;'><b>Para çekme KİMLİĞİ</b>: ".$ref."</p>
+                    <p style='font-size: 12px;'>Çekiminiz onaylandığında bildirileceksiniz</p>
                 ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'New Withdrawal');

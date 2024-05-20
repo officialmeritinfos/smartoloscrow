@@ -30,7 +30,18 @@
 
     <link rel="stylesheet" href="{{asset('home/css/style.css')}}">
 
+    <style>
+        .watkey {
+            z-index: 9;
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            padding: 4px;
+            border: 1px solid #0d9f16;
+            border-radius: 50%;
+        }
 
+    </style>
 
     <style>
         /* Custom CSS for the Float widget */
@@ -53,7 +64,13 @@
         }
     </style>
 
+    <style>
 
+        .yt-servicelink {
+            display:none !important;
+        }
+
+    </style>
 </head>
 <body>
 @inject('injected','App\Defaults\Custom')
@@ -77,7 +94,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-3 col-sm-4 d-flex justify-content-sm-end justify-content-center">
                     <div class="top-right">
-
+                        <div id="google_translate_element"></div>
                     </div>
                 </div>
             </div>
@@ -245,6 +262,8 @@
 
 
 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Google language End -->
 <script src="{{asset('home/js/jquery-3.6.0.min.js')}}"></script>
 
 <script src="{{asset('home/js/jquery.flagstrap.min.js')}}"></script>
@@ -276,65 +295,8 @@
     }
 </style>
 
-<!-- Telegram Float Widget -->
-<div class="telegram-float-widget">
-    <a href="https://t.me/" target="_blank">
-        <img src="https:///cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/3532799.png')}}" alt="" width="50">
-    </a>
-</div>
 
-<!-- Google language start -->
-<style>
 
-    #google_translate_element {
-        z-index: 9999999;
-        position: fixed;
-        bottom: 25px;
-        left: 15px;
-    }
-
-    .goog-te-gadget {
-        font-family: Roboto, "Open Sans", sans-serif !important;
-        text-transform: uppercase;
-    }
-    .goog-te-gadget-simple
-    {
-        padding: 0px !important;
-        line-height: 1.428571429;
-        color: white;
-        vertical-align: middle;
-        background-color: black;
-        border: 1px solid #a5a5a599;
-        border-radius: 4px;
-        float: right;
-        margin-top: -4px;
-        z-index: 999999;
-    }
-    .goog-te-banner-frame.skiptranslate
-    {
-        display: none !important;
-        color: white;
-    }
-    .goog-te-gadget-icon
-    {
-        background: none !important;
-        display: none;
-        color: white;
-    }
-    .goog-te-gadget-simple .goog-te-menu-value
-    {
-        font-size: 12px;
-        color: white;
-        font-family: 'Open Sans' , sans-serif;
-    }
-</style>
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-    window.onload = function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
@@ -402,12 +364,72 @@
 </script>
 <!-- end popup massage -->
 
-<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
-<script>
-    var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":20,"marginLeft":20,"marginRight":20,"btnPosition":"left","whatsAppNumber":"{{$web->phone}}","welcomeMessage":"Hello","zIndex":999999,"btnColorScheme":"light"};
-    window.onload = () => {
-        _waEmbed(wa_btnSetting);
-    };
+{{--<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>--}}
+{{--<script>--}}
+{{--    var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":20,"marginLeft":20,"marginRight":20,"btnPosition":"left","whatsAppNumber":"{{$web->phone}}","welcomeMessage":"Hello","zIndex":999999,"btnColorScheme":"light"};--}}
+{{--    window.onload = () => {--}}
+{{--        _waEmbed(wa_btnSetting);--}}
+{{--    };--}}
+{{--</script>--}}
+
+<!-- Telegram Float Widget -->
+<div class="telegram-float-widget">
+    <a href="https://wa.me/{{$web->phone}}" target="_blank">
+        <img src="https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_23-whatsapp-256.png" alt="" width="50">
+    </a>
+</div>
+
+
+<style>
+
+    /*#google_translate_element {*/
+    /*    z-index: 9999999;*/
+    /*    position: fixed;*/
+    /*    bottom: 25px;*/
+    /*    left: 15px;*/
+    /*}*/
+
+    /*.goog-te-gadget {*/
+    /*    font-family: Roboto, "Open Sans", sans-serif !important;*/
+    /*    text-transform: uppercase;*/
+    /*}*/
+    /*.goog-te-gadget-simple*/
+    /*{*/
+    /*    padding: 0px !important;*/
+    /*    line-height: 1.428571429;*/
+    /*    color: white;*/
+    /*    vertical-align: middle;*/
+    /*    background-color: black;*/
+    /*    border: 1px solid #a5a5a599;*/
+    /*    border-radius: 4px;*/
+    /*    float: right;*/
+    /*    margin-top: -4px;*/
+    /*    z-index: 999999;*/
+    /*}*/
+    /*.goog-te-banner-frame.skiptranslate*/
+    /*{*/
+    /*    display: none !important;*/
+    /*    color: white;*/
+    /*}*/
+    /*.goog-te-gadget-icon*/
+    /*{*/
+    /*    background: none !important;*/
+    /*    display: none;*/
+    /*    color: white;*/
+    /*}*/
+    /*.goog-te-gadget-simple .goog-te-menu-value*/
+    /*{*/
+    /*    font-size: 12px;*/
+    /*    color: white;*/
+    /*    font-family: 'Open Sans' , sans-serif;*/
+    /*}*/
+</style>
+<script type="text/javascript">
+    window.onload = function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Google language End -->
 </body>
 </html>
