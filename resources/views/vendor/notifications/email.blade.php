@@ -34,14 +34,14 @@
 
 {{-- Outro Lines --}}
 @foreach ($outroLines as $line)
-{!! $line !!}
+{!! $line .'<br/><br/>'!!}
 @endforeach
 
 {{-- Salutation --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>
+{{"Saygılarımla"}},<br>
 {{ config('app.name') }}
 @endif
 
