@@ -63,11 +63,11 @@ class Investments extends Controller
         $coinExists = Coin::where('asset',$investment->asset)->first();
 
         $userMessage = "
-                    İşte Yatırım Yatırma Talebinizin Detayı:<br/>
+                    Para yatırma işleminiz onaylandı:<br/>
                     <p style='font-size: 15px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
-                    <p style='font-size: 15px;'>ÖDEME YÖNTEMİ: ".$coinExists->name."</p>
                     <p style='font-size: 15px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
-                    <p style='font-size: 15px;'>YATIRIM KİMLİĞİ: ".$investment->reference."</p>
+                    <p style='font-size: 15px;'>Ödemeyi yapanın cüzdanı: İşlem kimliği:</p>
+                    <p style='font-size: 15px;'>İşlem Saatleri 7/24 - Pazartesi'den Perşembe'ye</p>
                 ";
 
         $investor->notify(new InvestmentMail($investor,$userMessage,'Yatırım Yatırma Aktivasyonu'));
