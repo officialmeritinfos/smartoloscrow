@@ -316,7 +316,7 @@
                                             <div class="part-img">
                                                 <img src="{{asset('home/images/pricing-img-1.jpg')}}" alt="image">
                                                 <div class="price">
-                                                    <h3><span></span>15%<span></span></h3>
+                                                    <h3><span></span>{{$package->roi}}%<span></span></h3>
                                                 </div>
                                             </div>
                                             <div class="part-txt">

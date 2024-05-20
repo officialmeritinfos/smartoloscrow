@@ -144,39 +144,92 @@
         </div>
     </section>
 
-    <div class="pricing-area" style="margin-bottom: 5rem;margin-top: 5rem;">
+    <div class="pricing" style="background: #f7f7f7;">
         <div class="container">
             <div class="row justify-content-center">
-                @foreach($packages as $package)
-                    @inject('option','App\Defaults\Custom')
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="single-price">
-                            <div class="deal-top">
-                                <h3>{{$package->name}}</h3>
-                                <h4> {{$package->roi}}%/ <span class="sup">{{$option->getReturnType($package->returnType)}}</span> </h4>
-                                <small class="text-white">{{$package->note}}</small>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="heading">
+                        <h5>COMPANY PLANS</h5>
+                        <h2>Our Investment Plans</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-12 col-lg-12 col-md-9">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-month" role="tabpanel" aria-labelledby="nav-month-tab">
+
+
+                            <div class="row">
+
+                                @foreach($packages as $package)
+                                    @inject('option','App\Defaults\Custom')
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="single-box" style="border: 10px solid;">
+                                            <div class="part-img">
+                                                <img src="{{asset('home/images/pricing-img-1.jpg')}}" alt="image">
+                                                <div class="price">
+                                                    <h3><span></span>{{$package->roi}}%<span></span></h3>
+                                                </div>
+                                            </div>
+                                            <div class="part-txt">
+                                                <h3>{{$package->name}} </h3>
+                                                <ul>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>  FOR {{$package->Duration}}</li>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>Min : {{number_format($package->minAmount,2)}}</li>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>Max : @if($package->isUnlimited !=1)
+                                                            ${{number_format($package->maxAmount,2)}}
+                                                        @else
+                                                            Unlimited
+                                                        @endif</li>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>REFERRALS - {{$package->referral}}%</li>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>PRINCIPAL RETURN-YES</li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="part-btn">
+
+
+                                                <a href="{{route('register')}}" class="def-btn">Invest Now</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+
+
+
+
                             </div>
-                            <div class="deal-bottom">
-                                <ul class="deal-item">
-                                    <li>
-                                        Price: ${{number_format($package->minAmount,2)}} - @if($package->isUnlimited !=1)
-                                            ${{number_format($package->maxAmount,2)}}
-                                        @else
-                                            Unlimited
-                                        @endif
-                                    </li>
-                                    <li>Profit return: {{$package->roi}}% {{$option->getReturnType($package->returnType)}}</li>
-                                    <li>Contract Duration: {{$package->Duration}}</li>
-                                    <li>Referral Bonus: {{$package->referral}}% </li>
-                                </ul>
-                                <div class="btn-area">
-                                    <a href="{{route('register')}}">Get Started</a>
-                                </div>
-                            </div>
+
+
+                            <br><br><br>
+
+
+
+
+
+
+
+
+
+                            <!--
+
+                                     <div class="row justify-content-center">
+                 <div class="col-xl-4 col-lg-4">
+                 <div class="heading">
+
+                 <h2>Profit Calculator</h2>
+                 </div>
+                 </div>
+                 </div>
+
+                 -->
+
                         </div>
                     </div>
-                @endforeach
-
+                </div>
             </div>
         </div>
     </div>

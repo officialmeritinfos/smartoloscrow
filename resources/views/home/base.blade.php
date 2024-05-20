@@ -282,6 +282,8 @@
         <img src="https:///cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/3532799.png')}}" alt="" width="50">
     </a>
 </div>
+
+<!-- Google language start -->
 <style>
 
     #google_translate_element {
@@ -326,15 +328,65 @@
         font-family: 'Open Sans' , sans-serif;
     }
 </style>
-<div id="google_translate_element">
-</div>
+<div id="google_translate_element"></div>
 <script type="text/javascript">
     window.onload = function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
     }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Google language End -->
+<!-- start popup massage -->
+<div class="notifier" style="display: none;">
+    <div class="txt" style="color:black;">While you are waiting,someone from <b></b> just traded with <a href="javascript:void(0);" onclick="javascript:void(0);"></a></div>
+</div>
+<style>
+    .notifier{
+        border-radius: 7px;
+        position: fixed;
+        z-index: 90;
+        bottom: 80px;
+        right: 50px;
+        background: #fff;
+        padding: 15px 40px;
+        box-shadow: 0px 5px 13px 0px rgba(0,0,0,.3);
+    }
+    .notifier a {
+        font-weight: 700;
+        display: block;
+        color:#0080FF;
+    }
+    .notifier a, .notifier a:active {
+        transition: all .2s ease;
+        color:#0080FF;
+    }
+</style>
+<script data-cfasync="false" src="#"></script><script type="text/javascript">
+    var listCountries = ['Germany', 'Spain', 'Russia', 'Italy',
+        'Italy',  'United States', 'Egypt',
+        'United Kingdom', "United States","England","Germany","Germany","United States","Switzerland",
+        "Austria","Austria","Austria","Australia","Australia","Australia","Russia","Russia",
+        "United States","United Kingdom","Spain","Spain","India","England","Italy","Ukraine"
+    ];
+    var listPlans = ['$500','$5000','$1,000','$1000','$550','$3000','$690', '$360',
+        '$700', '$600',"$500","$700","$1,000","$1289","$5000","$7000","$10000"];
+    interval = Math.floor(Math.random() * (40000 - 8000 + 1) + 8000);
+    var run = setInterval(request, interval);
 
+    function request() {
+        clearInterval(run);
+        interval = Math.floor(Math.random() * (40000 - 8000 + 1) + 8000);
+        var country = listCountries[Math.floor(Math.random() * listCountries.length)];
+        var plan = listPlans[Math.floor(Math.random() * listPlans.length)];
+        var msg = 'While you are still contemplating ,an investor from <b>' + country + '</b> ' +
+            'just traded with <a href="javascript:void(0);" onclick="javascript:void(0);">' + plan + ' .</a>';
+        $(".notifier .txt").html(msg);
+        $(".notifier").stop(true).fadeIn(300);
+        window.setTimeout(function() {
+            $(".notifier").stop(true).fadeOut(300);
+        }, 6000);
+        run = setInterval(request, interval);
+    }
+</script>
+<!-- end popup massage -->
 </body>
 </html>
