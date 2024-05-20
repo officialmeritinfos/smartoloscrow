@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendInvestmentNotification;
+use App\Models\Coin;
 use App\Models\GeneralSetting;
 use App\Models\User;
 use App\Models\Withdrawal;
@@ -88,12 +89,16 @@ class Withdrawals extends Controller
 //            $userMessage = "
 //               $<b>".$withdrawal->amount." </b> başarıyla ".$withdrawal->asset." hesabınıza gönderildi - ".$withdrawal->details.". İşlem KİMLİĞİ: ".sha1(rand(100000000,900000000))."
 //            ";
+
+            $coinExists = Coin::where('asset',$withdrawal->asset)->first();
+
             $userMessage = "
                     İşte Çekim Talebinizin Detayı:<br/>
-                    <p style='font-size: 12px;'><b>MIKTARI</b>: $".$withdrawal->amount."</p>
-                    <p style='font-size: 12px;'><b>ÖDEME YÖNTEMİ</b>: ".$withdrawal->asset."</p>
-                    <p style='font-size: 12px;'><b>CÜZDAN ADRESİ</b>: ".$withdrawal->details."</p>
-                    <p style='font-size: 12px;'><b>Para çekme KİMLİĞİ</b>: ".$withdrawal->reference."</p>
+                    <p style='font-size: 15px;'>MIKTARI:<br/> $".$withdrawal->amount."</p>
+                    <p style='font-size: 15px;'>HESAP ADI:<br/> ".$investor->name."</p>
+                    <p style='font-size: 15px;'>E-PARA MODU:<br/> ".$coinExists->name."</p>
+                    <p style='font-size: 15px;'>E-PARA # : <br/>".$withdrawal->reference."</p>
+                    <p style='font-size: 15px;'>ISLEM TOPLU # : <br/>n/a</p>
                 ";
             $investor->notify(new DepositMail($investor,$userMessage,'Para çekme Onayı'));
             //send mail to user

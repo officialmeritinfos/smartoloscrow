@@ -107,17 +107,22 @@ class Withdrawals extends Controller
             //check if admin exists
             $admin = User::where('is_admin',1)->first();
 
+//            $userMessage = "
+//                    İşte Çekim Talebinizin Detayı:<br/>
+//                    <p style='font-size: 12px;'><b>MIKTARI</b>: $".$input['amount']."</p>
+//                    <p style='font-size: 12px;'><b>ÖDEME YÖNTEMİ</b>: ".$input['asset']."</p>
+//                    <p style='font-size: 12px;'><b>CÜZDAN ADRESİ</b>: ".$input['wallet']."</p>
+//                    <p style='font-size: 12px;'><b>Para çekme KİMLİĞİ</b>: ".$ref."</p>
+//                    <p style='font-size: 12px;'>Çekiminiz onaylandığında bildirileceksiniz</p>
+//                ";
+
             $userMessage = "
-                    İşte Çekim Talebinizin Detayı:<br/>
-                    <p style='font-size: 12px;'><b>MIKTARI</b>: $".$input['amount']."</p>
-                    <p style='font-size: 12px;'><b>ÖDEME YÖNTEMİ</b>: ".$input['asset']."</p>
-                    <p style='font-size: 12px;'><b>CÜZDAN ADRESİ</b>: ".$input['wallet']."</p>
-                    <p style='font-size: 12px;'><b>Para çekme KİMLİĞİ</b>: ".$ref."</p>
-                    <p style='font-size: 12px;'>Çekiminiz onaylandığında bildirileceksiniz</p>
-                ";
+                You have requested to withdraw $".$input['amount'].".<br/>
+                Request IP Address ".$request->ip()."
+            ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'New Withdrawal');
-            $user->notify(new InvestmentMail($user,$userMessage,'Yeni Para çekme'));
+            $user->notify(new InvestmentMail($user,$userMessage,'Withdrawal Request has been sent'));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "
