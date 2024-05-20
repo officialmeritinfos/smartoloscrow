@@ -41,8 +41,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-{{"Saygılarımla"}},<br>
-{{ config('app.name') }}
+    {{ config('app.name') }} {{" U SEÇTİĞİNİZ İÇİN TEŞEKKÜR EDERİZ"}},<br>9
 @endif
 
 {{-- Subcopy --}}

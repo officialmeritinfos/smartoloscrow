@@ -64,10 +64,10 @@ class Investments extends Controller
 
         $userMessage = "
                     İşte Yatırım Yatırma Talebinizin Detayı:<br/>
-                    <p style='font-size: 12px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
-                    <p style='font-size: 12px;'>ÖDEME YÖNTEMİ: ".$coinExists->name."</p>
-                    <p style='font-size: 12px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
-                    <p style='font-size: 12px;'>YATIRIM KİMLİĞİ: ".$investment->reference."</p>
+                    <p style='font-size: 15px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
+                    <p style='font-size: 15px;'>ÖDEME YÖNTEMİ: ".$coinExists->name."</p>
+                    <p style='font-size: 15px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
+                    <p style='font-size: 15px;'>YATIRIM KİMLİĞİ: ".$investment->reference."</p>
                 ";
 
         $investor->notify(new InvestmentMail($investor,$userMessage,'Yatırım Yatırma Aktivasyonu'));

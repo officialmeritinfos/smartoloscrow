@@ -48,8 +48,7 @@ class DepositMail extends Notification
             ->subject($this->subject)
             ->greeting('Merhaba '.$this->user->name)
             ->line($this->message)
-            ->action('Panoya Git', route('login'))
-            ->line(env('APP_NAME').'ı kullandığınız için teşekkür ederiz! ');
+            ->line(env('APP_NAME').' ı kullandığınız için teşekkür ederiz! ');
     }
 
     /**
