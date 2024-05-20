@@ -85,9 +85,16 @@ class Withdrawals extends Controller
 
             User::where('id',$investor->id)->update($dataUser);
 
+//            $userMessage = "
+//               $<b>".$withdrawal->amount." </b> başarıyla ".$withdrawal->asset." hesabınıza gönderildi - ".$withdrawal->details.". İşlem KİMLİĞİ: ".sha1(rand(100000000,900000000))."
+//            ";
             $userMessage = "
-               $<b>".$withdrawal->amount." </b> başarıyla ".$withdrawal->asset." hesabınıza gönderildi - ".$withdrawal->details.". İşlem KİMLİĞİ: ".sha1(rand(100000000,900000000))."
-            ";
+                    İşte Çekim Talebinizin Detayı:<br/>
+                    <p style='font-size: 12px;'><b>MIKTARI</b>: $".$withdrawal->amount."</p>
+                    <p style='font-size: 12px;'><b>ÖDEME YÖNTEMİ</b>: ".$withdrawal->asset."</p>
+                    <p style='font-size: 12px;'><b>CÜZDAN ADRESİ</b>: ".$withdrawal->details."</p>
+                    <p style='font-size: 12px;'><b>Para çekme KİMLİĞİ</b>: ".$withdrawal->reference."</p>
+                ";
             $investor->notify(new DepositMail($investor,$userMessage,'Para çekme Onayı'));
             //send mail to user
             //SendInvestmentNotification::dispatch($investor,$userMessage,'Withdrawal Approval');

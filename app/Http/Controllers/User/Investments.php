@@ -160,7 +160,7 @@ class Investments extends Controller
                 ";
             //send mail to user
             //SendInvestmentNotification::dispatch($user,$userMessage,'Investment Initiation');
-            $user->notify(new InvestmentMail($user,$userMessage,'Yatırım Başlatma'));
+//            $user->notify(new InvestmentMail($user,$userMessage,'Yatırım Başlatma'));
             //send mail to Admin
             if (!empty($admin)){
                 $adminMessage = "

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendInvestmentNotification;
+use App\Models\Coin;
 use App\Models\GeneralSetting;
 use App\Models\Investment;
+use App\Models\Package;
 use App\Models\ReturnType;
 use App\Models\User;
 use App\Models\Withdrawal;
@@ -56,9 +58,19 @@ class Investments extends Controller
         $type = ReturnType::where('id',$investment->returnType)->first();
         $investor = User::where('id',$investment->user)->first();
 
-        $message ="Bekleyen yatırımınızın yatırımı alındı ve etkinleştirildi. Şimdi şirketimizde bir yatırımcı olmanın avantajlarının tadını çıkarabilirsiniz.";
+        $packageExists = Package::where('id',$investment->package)->first();
 
-        $investor->notify(new InvestmentMail($investor,$message,'Yatırım Yatırma Aktivasyonu'));
+        $coinExists = Coin::where('asset',$investment->asset)->first();
+
+        $userMessage = "
+                    İşte Yatırım Yatırma Talebinizin Detayı:<br/>
+                    <p style='font-size: 12px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
+                    <p style='font-size: 12px;'>ÖDEME YÖNTEMİ: ".$coinExists->name."</p>
+                    <p style='font-size: 12px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
+                    <p style='font-size: 12px;'>YATIRIM KİMLİĞİ: ".$investment->reference."</p>
+                ";
+
+        $investor->notify(new InvestmentMail($investor,$userMessage,'Yatırım Yatırma Aktivasyonu'));
 
         $timeReturn = strtotime($type->duration,time());
 
