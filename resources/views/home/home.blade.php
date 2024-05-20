@@ -112,7 +112,7 @@
                                             @endif
                                             @if( !empty($web->certificateLink))
 
-                                                <a href="{{$web->certificateLink}}" class="def-btn def-btn-2" target="_blank">COMPANY REG(1)</a>
+                                                <a href="{{asset($web->certificateLink)}}" class="def-btn def-btn-2" target="_blank">COMPANY REG(1)</a>
                                             @endif
                                             @if(!empty($web->companyCert) )
                                                 <a href="{{$web->companyCert}}" class="def-btn def-btn-2" target="_blank">CERTIFICATE(ENG)</a>
