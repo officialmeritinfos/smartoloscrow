@@ -188,6 +188,7 @@
                             <li><a href="{{url('about')}}">About</a></li>
                             <li><a href="{{url('faq')}}">FAQ's</a></li>
                             <li><a href="{{asset('home/phxvest.pdf')}}" target="_blank">Company's Profile</a></li>
+                            <li><a href="{{asset('home/phxvest-turk.pdf')}}" target="_blank">Company's Profile In Turkish</a></li>
 
                         </ul>
                     </div>
