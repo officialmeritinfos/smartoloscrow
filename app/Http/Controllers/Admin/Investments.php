@@ -67,7 +67,7 @@ class Investments extends Controller
                     <p style='font-size: 15px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
                     <p style='font-size: 15px;'>Plan: ".$packageExists->roi." after ".$packageExists->Duration. "</p>
                     <p style='font-size: 15px;'>Ödemeyi yapanın cüzdanı: İşlem kimliği:</p>
-                    <p style='font-size: 15px;'>İşlem Saatleri 7/24 - Pazartesi'den Perşembe'ye</p>
+                    <p style='font-size: 15px;'>İşlem Saatleri 7/24 - ".$packageExists->tradeDay."</p>
                 ";
 
         $investor->notify(new InvestmentMail($investor,$userMessage,'Yatırım Yatırma Aktivasyonu'));
