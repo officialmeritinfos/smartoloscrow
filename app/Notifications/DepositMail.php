@@ -48,7 +48,7 @@ class DepositMail extends Notification
             ->subject($this->subject)
             ->greeting('Merhaba '.$this->user->name)
             ->line($this->message)
-            ->line(env('APP_NAME').' ı kullandığınız için teşekkür ederiz! ');
+            ->line('<p>'.env('APP_NAME').' ı kullandığınız için teşekkür ederiz! </p>');
     }
 
     /**

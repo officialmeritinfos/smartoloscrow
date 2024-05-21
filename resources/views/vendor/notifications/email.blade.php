@@ -39,7 +39,7 @@
 
 {{-- Salutation --}}
 @if (! empty($salutation))
-{{ $salutation }}
+{!! "<br/>".$salutation !!}
 @else
     {{ config('app.name') }} {{" U SEÇTİĞİNİZ İÇİN TEŞEKKÜR EDERİZ "}},
 @endif
