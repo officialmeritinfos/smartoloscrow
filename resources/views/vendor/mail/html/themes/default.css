@@ -11,7 +11,7 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
 body {
     -webkit-text-size-adjust: none;
     background-color: #ffffff;
-    color: #718096;
+    color: #000000;
     height: 100%;
     line-height: 1.4;
     margin: 0;
@@ -38,7 +38,7 @@ a img {
 /* Typography */
 
 h1 {
-    color: #3d4852;
+    color: #000000;
     font-size: 18px;
     font-weight: bold;
     margin-top: 0;
@@ -103,7 +103,7 @@ img {
 }
 
 .header a {
-    color: #3d4852;
+    color: #000000;
     font-size: 19px;
     font-weight: bold;
     text-decoration: none;
@@ -111,11 +111,10 @@ img {
 
 /* Logo */
 
-.logo {
-    height: 75px;
-    max-height: 75gpx;
-    width: 150px;
-}
+/*.logo {*/
+/*    height: 75px;*/
+/*    width: 150px;*/
+/*}*/
 
 /* Body */
 
@@ -197,7 +196,7 @@ img {
 }
 
 .table td {
-    color: #74787e;
+    color: #000000;
     font-size: 15px;
     line-height: 18px;
     margin: 0;
@@ -271,7 +270,7 @@ img {
 }
 
 .panel-content p {
-    color: #718096;
+    color: #000000;
 }
 
 .panel-item {

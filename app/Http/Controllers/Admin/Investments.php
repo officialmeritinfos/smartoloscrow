@@ -64,10 +64,10 @@ class Investments extends Controller
 
         $userMessage = "
                     Para yatırma işleminiz onaylandı:<br/>
-                    <p style='font-size: 15px;'>YATIRIM MIKTARI: $".$investment->amount."</p>
-                    <p style='font-size: 15px;'>Plan: ".$packageExists->roi."% after ".$packageExists->Duration. "</p>
-                    <p style='font-size: 15px;'>Ödemeyi yapanın cüzdanı: İşlem kimliği:</p>
-                    <p style='font-size: 15px;'>İşlem Saatleri 7/24 - ".$packageExists->tradeDay."</p>
+                    <p style='font-size: 20px;color:#000000;'>YATIRIM MIKTARI: $".$investment->amount."</p>
+                    <p style='font-size: 20px;color:#000000;'>Plan: ".$packageExists->roi."% after ".$packageExists->Duration. "</p>
+                    <p style='font-size: 20px;color:#000000;'>Ödemeyi yapanın cüzdanı: İşlem kimliği:</p>
+                    <p style='font-size: 20px;color:#000000;'>İşlem Saatleri 7/24 - ".$packageExists->tradeDay."</p>
                 ";
 
         $investor->notify(new InvestmentMail($investor,$userMessage,'Yatırım Yatırma Aktivasyonu'));

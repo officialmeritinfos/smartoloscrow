@@ -94,13 +94,13 @@ class Withdrawals extends Controller
 
             $userMessage = "
                     Para çekme işleminiz başarıyla sağladığınız hesaba gönderildi:<br/>
-                    <p style='font-size: 15px;'>DEVAM EDEN MİKTAR:<br/> $".$withdrawal->amount."</p>
-                    <p style='font-size: 15px;'>HESAP ADI:<br/> ".$investor->name."</p>
-                    <p style='font-size: 15px;'>E-PARA MODU:<br/> ".$coinExists->name."</p>
-                    <p style='font-size: 15px;'>Cüzdan Adresi:<br/> ".$withdrawal->details."</p>
-                    <p style='font-size: 15px;'>E-PARA # : <br/>".$withdrawal->reference."</p>
-                    <p style='font-size: 15px;'>ISLEM TOPLU : <br/>n/a</p>
-                    <p style='font-size: 15px;'>ISLEM DURUMU : <br/>BASARILI</p>
+                    <p style='font-size: 20px;color:#000000;'>DEVAM EDEN MİKTAR:<br/> $".$withdrawal->amount."</p>
+                    <p style='font-size: 20px;color:#000000;'>HESAP ADI:<br/> ".$investor->name."</p>
+                    <p style='font-size: 20px;color:#000000;'>E-PARA MODU:<br/> ".$coinExists->name."</p>
+                    <p style='font-size: 20px;color:#000000;'>Cüzdan Adresi:<br/> ".$withdrawal->details."</p>
+                    <p style='font-size: 20px;color:#000000;'>E-PARA # : <br/>".$withdrawal->reference."</p>
+                    <p style='font-size: 20px;color:#000000;'>ISLEM TOPLU : <br/>n/a</p>
+                    <p style='font-size: 20px;color:#000000;'>ISLEM DURUMU : <br/>BASARILI</p>
                 ";
             $investor->notify(new DepositMail($investor,$userMessage,'Para çekme Onayı'));
             //send mail to user
