@@ -331,6 +331,7 @@
                                                         @endif</li>
                                                     <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>REFERRALS - {{$package->referral}}%</li>
                                                     <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>PRINCIPAL RETURN-YES</li>
+                                                    <li><span><i class="flaticon-right-arrow-in-a-circle"></i></span>{{$package->tradeDayEnglish}}</li>
 
                                                 </ul>
                                             </div>
